@@ -1,0 +1,22 @@
+@model Post
+  @{
+      ViewData["Title"] = "Edição";
+  }
+  <h2>Edição de Post do Blog</h2>
+
+  <form id="frmCadastro" asp-controller="Post" asp-action="Editar" method="post">
+      <p>
+          <label asp-for="Titulo">Título</label><br/>
+          <input asp-for="Titulo" value="@Model.Titulo"/>
+      </p>
+      <p>
+          <label asp-for="Texto" style="vertical-align:middle;">Texto</label><br/>
+          <textarea asp-for="Texto" cols="40" rows="5" value="@Model.Texto"></textarea>
+      </p>
+      <p>
+          <label asp-for="Data">Data</label><br/>
+          <input asp-for="Data" value="@Model.Data"/>
+          <input asp-for="Id" value="@Model.Id" type="hidden"/>
+      </p>
+      <input type="submit" value="Salvar"/>
+  </form>

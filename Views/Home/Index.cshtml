@@ -1,0 +1,28 @@
+﻿ @model List<Post>
+  @{
+      Layout = "_LayoutBlog";
+      ViewData["Title"] = "Home Page";
+  }
+
+  <div>
+      @foreach (Post item in Model)
+      {
+            <article id="post-@item.Id" class="post">
+              <h2 class="post-title">@item.Titulo</h2>
+              <span class="post-date">@item.Data</span>
+              <div class="post-content">
+                    <p>@item.Texto</p>
+              </div>
+              <section id="comments-@item.Id" class="comments">
+                   <h4>Comentários</h4>
+                   <partial name="_ListaComentario" model="@item.Comentarios" />
+                   <partial name="_FormComentario" model="@item.Id" />
+              </section>
+          </article>
+      }
+       @for(int i = 1; i<= (int)ViewData["Paginas"]; i++)
+  {
+      <a href="/?p=@i">@i</a>
+  }
+      
+  </div>

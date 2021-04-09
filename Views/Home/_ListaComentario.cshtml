@@ -1,0 +1,7 @@
+@model ICollection<Comentario>
+
+  @foreach (Comentario comment in Model)
+  {
+      <h5>@comment.Autor - @comment.Data.ToString("dd/MM/yy HH:mm")</h5>
+      <p>@comment.Conteudo</p>
+  }

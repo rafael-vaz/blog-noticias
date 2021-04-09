@@ -1,0 +1,23 @@
+@model Post
+  @{
+      ViewData["Title"] = "Cadastro";
+  }
+  <h2>Cadastro de Post do Blog</h2>
+
+  <p>@ViewData["Mensagem"]</p>
+
+  <form id="frmCadastro" asp-controller="Post" asp-action="Cadastro" method="post">
+      <p>
+          <label asp-for="Titulo">Título</label><br/>
+          <input asp-for="Titulo" />
+      </p>
+      <p>
+          <label asp-for="Texto" style="vertical-align:middle;">Texto</label><br/>
+          <textarea asp-for="Texto" cols="40" rows="5"></textarea>
+      </p>
+      <p>
+          <label asp-for="Data">Data</label><br/>
+          <input asp-for="Data" />
+      </p>
+      <input type="submit" value="Salvar"/>
+  </form>
